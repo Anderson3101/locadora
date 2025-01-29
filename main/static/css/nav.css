@@ -1,0 +1,83 @@
+@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,200..800;1,200..800&display=swap');
+
+:root{
+    --cor_cards: #fff;
+    --cor_secundaria: #3563E9;
+    --cor_linha: #C3D4E9;
+    --cor_texto: #90A3BF;
+}
+
+*{
+    margin: 0;
+    padding: 0;
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    list-style-type: none
+}
+
+.sidebar h1{
+    color: var(--cor_texto);
+    font-weight: 100;
+    font-size: 12px;
+    margin: 20px;
+}
+
+.line{
+    height: 1px;
+    background-color: var(--cor_linha);
+    width: 180px;
+    margin: auto;
+    margin-top: 20px;
+}
+
+.sidebar {
+    box-sizing: border-box;
+    height: 100vh;
+    width: 15vw;
+    padding: 5px 1em;
+    background-color: var(--cor_cards);
+    position: sticky;
+    top: 0;
+    align-self: start;
+}
+
+.sidebar ul li a{
+    margin: auto;
+    padding: 15px;
+    align-items: center;
+    text-decoration: none;
+    font-style: normal;
+    display: flex;
+    border-radius: 10px;
+    margin-top: 20px;
+    color: var(--cor_texto);
+    transition: background-color 0.3s;
+}
+
+.sidebar ul li a:hover{
+    background-color: var(--cor_secundaria);
+    border-radius: 10px;
+    color: var(--cor_cards);
+    fill: var(--cor_cards);
+    transition: background-color 0.3s;
+}
+
+svg {
+    margin: 0px 12px 0px 0px;
+    transition: fill 0.3s;
+}
+
+.sidebar ul li a:hover svg {
+    fill: var(--cor_cards);
+    transition: fill 0.3s;
+
+}
+
+.sidebar ul li a.active {
+    background-color: var(--cor_secundaria);
+    color: var(--cor_cards);
+}
+
+.sidebar ul li a.active svg {
+    fill: var(--cor_cards);
+}
+

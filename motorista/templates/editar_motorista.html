@@ -1,0 +1,76 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="{% static 'js/cadastro_motorista.js' %}" defer></script>
+    <script src="{% static 'js/jquery-3.7.1.min.js' %}" defer></script>
+    <script src="{% static 'js/jquery.mask.min.js' %}" defer></script>
+    <script src="{% static 'js/mascara.js' %}" defer></script>
+    <link rel="stylesheet" href="{%static '/css/editar_motorista.css'%}">
+    <title>Editar Motorista</title>
+</head>
+    <body>
+
+        {% block sidebar %}
+            {% include 'nav.html' %}
+        {% endblock %}
+
+        <main>
+           
+            <h1>Editar Motorista</h1>
+
+            <form method="POST"> {% csrf_token %}
+                <div>
+                    <div>
+                        <label for="nome">Nome:</label>
+                        <input type="text" class="nome" name="nome" value="{{ motorista.nome }}">
+                        
+                        <label for="email">E-mail:</label>
+                        <input type="text" class="email" name="email" value="{{ motorista.email }}">
+                        
+                        <label for="cnpj">CNPJ:</label>
+                        <input type="text" class="cnpj" name="cnpj" value="{{ motorista.cnpj }}">
+                        
+                        <label for="cpf">CPF:</label>
+                        <input type="text" class="cpf" name="cpf" value="{{ motorista.cpf }}">
+                        
+                        <label for="cep">CEP:</label>
+                        <input type="text" class="cep" name="cep" value="{{ motorista.cep }}">
+                        
+                        <label for="endereco">Endereço:</label>
+                        <input type="text" class="endereco" name="endereco" value="{{ motorista.endereco }}">
+                        
+                        <label for="numero">Numero:</label>
+                        <input type="text" class="numero" name="numero" value="{{ motorista.numero }}">
+                        
+                        <label for="bairro">Bairro:</label>
+                        <input type="text" class="bairro" name="bairro" value="{{ motorista.bairro }}">
+                        
+                        <label for="cidade">Cidade:</label>
+                        <input type="text" class="cidade" name="cidade" value="{{ motorista.cidade }}">
+                        
+                        <label for="estado">Estado:</label>
+                        <input type="text" class="estado" name="estado" value="{{ motorista.estado }}">
+                        
+                        <label for="telefone">Telefone:</label>
+                        <input type="text" class="phone_with_ddd" name="telefone" value="{{ motorista.telefone }}">
+                        
+                        <label for="celular">Celular:</label>
+                        <input type="text" class="number_with_ddd" name="celular" value="{{ motorista.celular }}">
+                        
+                        <label for="observacao">Observacão:</label>
+                        <input type="text" class="observacao" name="observacao" value="{{ motorista.observacao }}">
+                        
+                        <label for="status">Status:</label>
+                        <input type="checkbox" class="status" name="status" {% if motorista.status %}checked{% endif %}>
+                    </div>
+                </div>
+
+                <button type="submit">Salvar</button>
+            </form>
+        </main>
+    </body>
+</html>

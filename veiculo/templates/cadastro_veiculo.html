@@ -1,0 +1,94 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="{% static 'js/cadastro_veiculo.js' %}" ></script>
+    <script src="{% static 'js/jquery-3.7.1.min.js' %}" ></script>
+    <script src="{% static 'js/jquery.mask.min.js' %}" ></script>
+    <script src="{% static 'js/mascara.js' %}" ></script>
+    <link rel="stylesheet" href="{% static '/css/cadastro_veiculo.css' %}">
+    <title>Cadastrar veículo</title>
+</head>
+    <body>
+        {% block sidebar %}
+            {% include 'nav.html' %}
+        {% endblock %}
+
+        <main>
+            <div class="title">
+                <h1>Adicionar veículo</h1>
+            </div>
+
+            <div class="container">
+                <div class="subtitle">
+                    <h2>Cadastro de veículo</h2>
+                </div>
+                <form method="POST">{% csrf_token %}
+                    <div class="form-grid">
+
+                        <div class="grid1">
+                            <label for="marca"></label>
+                            <select name="marca" id="marca">
+                                <option value="" selected>Selecione uma marca</option>
+                                <option value="Chevrolet">Chevrolet</option>
+                                <option value="Fiat">Fiat</option>
+                                <option value="Honda">Honda</option>
+                                <option value="Peugeot">Peugeot</option>
+                                <option value="Jeep">Jeep</option>
+                                <option value="Toyota">Toyota</option>
+                                <option value="Hyundai">Hyundai</option>
+                                <option value="Volkswagen">Volkswagen</option>
+                                <option value="Renault">Renault</option>
+                                <option value="Nissan">Nissan</option>
+                                <option value="Ford">Ford</option>
+                                <option value="Kia">Kia</option>
+                                <option value="BYD">BYD</option>
+                            </select>
+                            <label for="modelo"></label>
+                            <select name="modelo" id="modelo">
+                                <option value="">Selecione um modelo</option>
+                            </select>
+                            <label for="combustivel"></label>
+                            <select name="combustivel" id="combustivel">
+                                <option value="">Selecione o tipo do combustível</option>
+                            </select>
+                            <label for="ano"></label>
+                            <select name="ano" id="ano">
+                                <option value="">Selecione o ano</option>
+                            </select>
+                        </div>
+                        <div class="grid2">
+                            <label for="placa">
+                                <input type="placa" name="placa" class="placa" placeholder="Digite a placa do veículo" oninput="this.value = this.value.toUpperCase();">
+                            </label>
+                            <label for="km_atual">
+                                <input type="text" name="km_atual" class="km_atual" placeholder="Digite o quilometro atual">
+                            </label>
+                            <label for="status">
+                                <select name="status" id="status">
+                                    <option value="Disponível">Disponível</option>
+                                    <option value="Indisponível">Indisponível</option>
+                                </select>
+                            </label>
+                            <label for="cambio">
+                                <select name="cambio" id="cambio">
+                                    <option value="Manual">Manual</option>
+                                    <option value="Automático">Automático</option>
+                                    <option value="Automatizado">Automatizado</option>
+                                    <option value="CVT">CVT</option>
+                                </select>
+                            </label>
+                        </div>
+                    </div>
+                    <div class="submit-btn">
+                        <button type="submit">Cadastrar</button>
+                    </div>
+                </form>
+            </div>
+        </main>
+    </body>
+</html>

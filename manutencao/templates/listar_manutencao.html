@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Lista de Manutenções</title>
+  </head>
+  <body>
+    <h1>Lista de Manutenções</h1>
+    {% if messages %}
+    <div class="alert-messages">
+      {% for message in messages %}
+      <div class="alert alert-{{ message.tags }} mt-2" role="alert">
+        {{ message }}
+      </div>
+      {% endfor %}
+    </div>
+    {% endif %}
+    <table>
+        <thead>
+            <tr>
+                <th>Data</th>
+                <th>Veiculo</th>
+                <th>Motorista</th>
+                <th>Descrição</th>
+                <th>Valor</th>
+                <th>Local</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for manutencao in manutencao %}
+            <tr>
+                <td>{{ manutencao.data_manutencao }}</td>
+                <td>{{ manutencao.veiculo.placa }}</td>
+                <td>{{ manutencao.motorista.nome }}</td>
+                <td>{{ manutencao.descricao_manutencao }}</td>
+                <td>{{ manutencao.valor_manutencao }}</td>
+                <td>{{ manutencao.local_manutencao }}</td>
+                <td class="text-center">
+                    <a href="{% url 'editar_manutencao' manutencao.pk %}">
+                        <i></i> Editar
+                    </a>
+                    
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+
+  </body>
+</html>

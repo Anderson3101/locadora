@@ -1,0 +1,59 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <link rel="stylesheet" href="{% static '/css/listar_motoristas.css'%}">
+
+  <title>Lista de Motoristas</title>
+</head>
+
+  <body>
+
+    {% block sidebar %}
+        {% include 'nav.html' %}
+    {% endblock %}
+
+    <main>
+      <h1>Lista de Motoristas</h1>
+      
+      {% if messages %}
+      <div class="alert-messages">
+        {% for message in messages %}
+        <div class="alert alert-{{ message.tags }} mt-2" role="alert">
+          {{ message }}
+        </div>
+        {% endfor %}
+      </div>
+      {% endif %}
+      <table>
+          <thead>
+              <tr>
+                  <th>Nome</th>
+                  <th>CPF</th>
+                  <th>CNPJ</th>
+              </tr>
+          </thead>
+          <tbody>
+              {% for motorista in motoristas %}
+              <tr>
+                  <td>{{ motorista.nome }}</td>
+                  <td>{{ motorista.cpf }}</td>
+                  <td>{{ motorista.cnpj }}</td>
+                  <td class="text-center">
+                      <a href="{% url 'editar_motorista' motorista.pk %}">
+                          <i></i> Editar
+                      </a>
+                      <a href="{% url 'excluir_motorista' motorista.pk %}">
+                          <i></i> Excluir
+                      </a>
+              </tr>
+              {% endfor %}
+          </tbody>
+      </table>
+    </main>
+  </body>
+</html>

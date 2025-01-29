@@ -1,0 +1,94 @@
+{%load static%}
+
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <link rel="stylesheet" href="{% static '/css/cadastro_veiculo.css'%}">
+    <script src="{% static 'js/editar_veiculo.js' %}" ></script>
+    <script src="{% static 'js/jquery-3.7.1.min.js' %}" ></script>
+    <script src="{% static 'js/jquery.mask.min.js' %}" ></script>
+    <script src="{% static 'js/mascara.js' %}" ></script>
+    <link rel="stylesheet" href="{% static '/css/cadastro_veiculo.css' %}">
+
+   <title>Editar Motorista</title>
+</head>
+    <body>
+        {% block sidebar %}
+            {% include 'nav.html' %}
+        {% endblock %}
+
+        <main>
+            <div class="title">
+                <h1>Editar veículo</h1>
+            </div>
+
+            <div class="container">
+                <div class="subtitle">
+                    <h2>Editar veículo</h2>
+                </div>
+                <form method="POST">{% csrf_token %}
+                    <div class="form-grid">
+
+                        <div class="grid1">
+                            <label for="marca"></label>
+                            <select name="marca" id="marca" data-current="{{ veiculo.marca }}">
+                                <option value="">Selecione a marca</option>
+                                <option value="Chevrolet" {% if veiculo.marca == "Chevrolet" %}selected{% endif %}>Chevrolet</option>
+                                <option value="Fiat" {% if veiculo.marca == "Fiat" %}selected{% endif %}>Fiat</option>
+                                <option value="Honda" {% if veiculo.marca == "Honda" %}selected{% endif %}>Honda</option>
+                                <option value="Peugeot" {% if veiculo.marca == "Peugeot" %}selected{% endif %}>Peugeot</option>
+                                <option value="Jeep" {% if veiculo.marca == "Jeep" %}selected{% endif %}>Jeep</option>
+                                <option value="Toyota" {% if veiculo.marca == "Toyota" %}selected{% endif %}>Toyota</option>
+                                <option value="Hyundai" {% if veiculo.marca == "Hyundai" %}selected{% endif %}>Hyundai</option>
+                                <option value="Volkswagen" {% if veiculo.marca == "Volkswagen" %}selected{% endif %}>Volkswagen</option>
+                                <option value="Renault" {% if veiculo.marca == "Renault" %}selected{% endif %}>Renault</option>
+                                <option value="Nissan" {% if veiculo.marca == "Nissan" %}selected{% endif %}>Nissan</option>
+                                <option value="Ford" {% if veiculo.marca == "Ford" %}selected{% endif %}>Ford</option>
+                                <option value="Kia" {% if veiculo.marca == "Kia" %}selected{% endif %}>Kia</option>
+                                <option value="BYD" {% if veiculo.marca == "BYD" %}selected{% endif %}>BYD</option>
+                            </select>
+                            <label for="modelo"></label>
+                            <select name="modelo" id="modelo" data-current="{{ veiculo.modelo }}">
+                                <option value="{{ veiculo.modelo }}">{{ veiculo.modelo }}</option>
+                            </select>
+                            <label for="combustivel"></label>
+                            <select name="combustivel" id="combustivel">
+                                <option value="{{ veiculo.combustivel }}">{{ veiculo.combustivel }}</option>
+                            </select>
+                            <label for="ano"></label>
+                            <select name="ano" id="ano">
+                                <option value="{{ veiculo.ano }}">{{ veiculo.ano }}</option>
+                            </select>
+                        </div>
+                        <div class="grid2">
+                            <label for="placa">
+                                <input type="placa" value="{{ veiculo.placa }}" name="placa" class="placa" placeholder="Digite a placa do veículo" oninput="this.value = this.value.toUpperCase();">
+                            </label>
+                            <label for="km_atual">
+                                <input type="number" value="{{ veiculo.km_atual }}" name="km_atual" class="km_atual" placeholder="Digite o quilometro atual">
+                            </label>
+                            <label for="status">
+                                <select name="status" id="status">
+                                    <option value="Disponível" {% if veiculo.status == "Disponível" %}selected{% endif %}>Disponível</option>
+                                    <option value="Indisponível" {% if veiculo.status == "Indisponível" %}selected{% endif %}>Indisponível</option>
+                                </select>
+                            </label>
+                            
+                            <label for="cambio">
+                                <select name="cambio" id="cambio">
+                                    <option value="Manual" {% if veiculo.cambio == "Manual" %}selected{% endif %}>Manual</option>
+                                    <option value="Automático" {% if veiculo.cambio == "Automático" %}selected{% endif %}>Automático</option>
+                                    <option value="Automatizado" {% if veiculo.cambio == "Automatizado" %}selected{% endif %}>Automatizado</option>
+                                    <option value="CVT" {% if veiculo.cambio == "CVT" %}selected{% endif %}>CVT</option>
+                                </select>
+                            </label>
+                        </div>
+                    </div>
+                    <div class="submit-btn">
+                        <button type="submit">Editar</button>
+                    </div>
+                </form>
+            </div>
+        </main>
+    </body>
+</html>

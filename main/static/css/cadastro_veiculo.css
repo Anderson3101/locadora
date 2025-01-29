@@ -1,0 +1,116 @@
+@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,200..800;1,200..800&display=swap');
+
+:root{
+    --background_color: #F6F7F9;
+    --cor_cards: #fff;
+    --cor_secundaria: #3563E9;
+    --cor_linha: #C3D4E9;
+}
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+*{
+    appearance: none;
+    -moz-appearance: none;
+    -webkit-appearance: none;
+    margin: 0;  
+    padding: 0;
+    list-style: none;
+    text-decoration: none;
+    outline: none;
+    box-sizing: border-box;
+    font-family: 'Plus Jakarta Sans', sans-serif;
+}
+
+body {
+    min-height: 100vh;
+    min-height: 100dvh;
+    background-color: var(--background_color);
+    display: grid;
+    grid-template-columns: auto 1fr;
+}
+
+.title h1 {
+    padding: 20px 60px;
+}
+
+.container {
+    width: 70vw;
+    background-color: var(--cor_cards);
+    border-radius: 20px;
+    margin: 0px 60px;
+    text-align: center;
+}
+
+.form-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+}
+
+.grid1 {
+    margin: auto;
+}
+
+.grid2 {
+    margin: auto;
+}
+
+input, select {
+    width: 450px;
+    border: 1px solid #626262;
+    background-color: #F7F7F7;
+    color: #525252;
+    border-radius: 20px;
+    margin-bottom: 35px;
+    padding: 15px;
+
+}
+
+select:focus {
+    color: #000;
+    border: 2px solid var(--cor_secundaria) ;
+    background-color: var(--cor_cards);
+}
+
+input:focus {
+    color: #000;
+    border: 2px solid var(--cor_secundaria) ;
+    background-color: var(--cor_cards);
+}
+
+.subtitle h2{
+    padding: 40px;
+    font-weight: 500;
+    font-size: 16px;
+}
+
+.submit-btn {
+    text-align: center;
+    margin-top: 20px;
+}
+
+.submit-btn button{
+    border: none;
+    background-color: var(--cor_secundaria);
+    color: var(--cor_cards);
+    border-radius: 20px;
+    width: 200px;
+    padding: 10px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    margin-bottom: 50px;
+}
+
+.submit-btn button:hover{
+    background-color: #2c52c3;
+    transition: background-color 0.2s;
+}
+
+.submit-btn button:active{
+    background-color: #213d92;
+    transition: background-color 0.2s;
+}
