@@ -28,7 +28,7 @@ input::-webkit-inner-spin-button {
 
 body {
     min-height: 100vh;
-    min-height: 100dvh;
+    min-height: 120dvh;
     background-color: var(--background_color);
     display: grid;
     grid-template-columns: auto 1fr;
@@ -39,58 +39,76 @@ body {
 }
 
 .container {
+    position: relative;
     width: 70vw;
-    background-color: var(--cor_cards);
+    height: 700px;
+    background-color: #fff;
     border-radius: 20px;
     margin: 0px 60px;
-    text-align: center;
 }
 
-.form-grid {
+.form_flex{
+    display: flex;
+    justify-content: center;
+    gap: 40px;
+}
+
+.flex1{
+    margin-top: 40px;
+}
+
+.flex2{
+    margin-top: 40px;
+}
+
+.input_form {
     display: grid;
-    grid-template-columns: repeat(2, 1fr);
+    margin-top: 30px;
 }
 
-.grid1 {
-    margin: auto;
-}
-
-.grid2 {
-    margin: auto;
-}
-
-input, select {
-    width: 450px;
+.input_form input, select {
+    width: 400px;
+    height: 40px;
+    border-radius: 10px;
     border: 1px solid #626262;
     background-color: #F7F7F7;
-    color: #525252;
-    border-radius: 20px;
-    margin-bottom: 35px;
-    padding: 15px;
-
+    margin-top: 5px;
+    padding: 0px 20px;
 }
 
-select:focus {
-    color: #000;
-    border: 2px solid var(--cor_secundaria) ;
-    background-color: var(--cor_cards);
+.input_form input:focus {
+    border: 2px solid #3563E9;
 }
 
-input:focus {
-    color: #000;
-    border: 2px solid var(--cor_secundaria) ;
-    background-color: var(--cor_cards);
+.input_form select:focus {
+    border: 2px solid #3563E9;
 }
 
-.subtitle h2{
-    padding: 40px;
-    font-weight: 500;
-    font-size: 16px;
+.input_form textarea:focus {
+    border: 2px solid #3563E9;
+}
+
+.input_form label{
+    font-weight: 400;
+}
+
+.input_form .observacao {
+    width: 400px;
+    height: 138px;
+    border-radius: 10px;
+    border: 1px solid #626262;
+    background-color: #F7F7F7;
+    margin-top: 5px;
+    padding: 10px 20px;
 }
 
 .submit-btn {
     text-align: center;
     margin-top: 20px;
+    position: absolute;
+    left: 0;
+    right: 0;
+    margin: auto;
 }
 
 .submit-btn button{
@@ -102,7 +120,7 @@ input:focus {
     padding: 10px;
     cursor: pointer;
     transition: background-color 0.3s;
-    margin-bottom: 50px;
+    margin-top: 70px;
 }
 
 .submit-btn button:hover{

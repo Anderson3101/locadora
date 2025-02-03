@@ -34,7 +34,7 @@ def criar_veiculos():
         veiculo = Veiculo(
             marca=marca,
             modelo=modelo,
-            ano=random.randint(1990, 2025),
+            ano=random.randint(2015, 2025),
             placa=fake.license_plate().upper(),
             combustivel=random.choice(combustiveis),
             status=random.choice(['Disponível', 'Indisponível']),

@@ -73,11 +73,17 @@ def excluir_veiculo(request, pk):
     return redirect('listar_veiculos')
 
 def buscar_veiculos(request):
-    pesquisa = request.GET.get('pesquisa', '')  # Captura o termo de pesquisa
+    pesquisa = request.GET.get('pesquisa', '')  # Obtém o termo pesquisado
 
-    # Filtra os veículos pelo campo 'placa' (ou outro campo relevante)
-    veiculos = Veiculo.objects.filter(placa__icontains=pesquisa)[:10]  # Limita a 10 resultados
+    # Busca no banco independentemente da página ativa
+    veiculos = Veiculo.objects.filter(
+        placa__icontains=pesquisa
+    ) | Veiculo.objects.filter(
+        modelo__icontains=pesquisa
+    ) | Veiculo.objects.filter(
+        marca__icontains=pesquisa
+    )
 
     # Retorna os dados como JSON
-    data = list(veiculos.values('placa', 'marca', 'modelo', 'ano'))
+    data = list(veiculos.values('id', 'marca', 'modelo', 'placa', 'ano', 'status'))
     return JsonResponse({'veiculos': data})

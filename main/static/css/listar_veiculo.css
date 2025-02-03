@@ -61,7 +61,6 @@ body {
     gap: 150px;
     padding: 10px;
     font-size: 12px;
-
 }
 
 .title_status{
@@ -236,13 +235,13 @@ input {
 .imagem{
     margin: auto;
     display: flex;
-    width: 200px;
     height: 150px;
-    border-radius: 10px;
 }
 
-.imagem svg{
+.imagem img{
     margin: auto;
+    width: 230px;
+    border-radius: 10px;
 }
 
 .ano_status{
@@ -300,36 +299,50 @@ input {
     background-color: #213d92;
 }
 
-.pagination-container {
-    display: flex;
-    justify-content: center;
-    margin-top: 20px;
-}
-
 .pagination {
     display: flex;
-    gap: 10px;
+    justify-content: center;
     align-items: center;
-    background: #f8f8f8;
-    padding: 10px 15px;
-    border-radius: 8px;
-    box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);
+    gap: 5px;
+    margin-top: 20px;
+    margin-bottom: 70px;
+}
+
+.page-link, .current {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 30px;
+    height: 30px;
+    border-radius: 999999px;
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 12px;
 }
 
 .page-link {
-    text-decoration: none;
-    background: #007bff;
-    color: white;
-    padding: 8px 12px;
-    border-radius: 5px;
-    transition: background 0.3s ease;
+    background-color: #F6F7F9;
+    color: #000;
+    border: none;
 }
 
 .page-link:hover {
-    background: #0056b3;
+    background-color: #3563E9;
 }
 
-.current-page {
+.current {
+    background-color: #3563E9;
+    color: #fff;
+}
+
+.dots {
+    font-size: 20px;
     font-weight: bold;
-    color: #333;
+    color: #000;
+    margin: 0 5px;
+}
+
+.page-link:hover {
+    background: #3563E9;
+    color: #fff;
 }

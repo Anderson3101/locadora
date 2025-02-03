@@ -16,7 +16,7 @@ fake = Faker('pt_BR')
 
 def criar_manutencao():
     manutencao_list = []
-    status_manutencao = ['Pendente', 'Concluída', 'Em andamento']
+    status_manutencao = ['Finalizado', 'Cancelado']
     
     # Lista de descrições curtas de serviços
     descricoes_servicos = [

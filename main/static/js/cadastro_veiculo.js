@@ -16,7 +16,8 @@ document.addEventListener("DOMContentLoaded", function () {
     };
 
     const combustiveis = ["Gasolina", "Álcool", "Diesel", "Flex", "Híbrido", "Elétrico"];
-    const anos = Array.from({ length: 30 }, (_, i) => 2000 + i);
+    const anoAtual = new Date().getFullYear();
+    const anos = Array.from({ length: anoAtual - 2015 + 1 }, (_, i) => 2015 + i);
     const marcaSelect = document.getElementById("marca");
     const modeloSelect = document.getElementById("modelo");
     const combustivelSelect = document.getElementById("combustivel");

@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lista de Aluguéis</title>
+</head>
+<body>
+    <h1>Lista de Aluguéis</h1>
+
+    {% if messages %}
+    <div class="alert-messages">
+        {% for message in messages %}
+        <div class="alert alert-{{ message.tags }} mt-2" role="alert">
+            {{ message }}
+        </div>
+        {% endfor %}
+    </div>
+    {% endif %}
+
+    <a href="{% url 'cadastro_aluguel' %}">Adicionar Aluguel</a>
+
+    <table border="1">
+        <thead>
+            <tr>
+                <th>Data Início</th>
+                <th>Data Fim</th>
+                <th>Veículo</th>
+                <th>Motorista</th>
+                <th>KM Atual</th>
+                <th>Taxa</th>
+                <th>Valor Pago</th>
+                <th>Ações</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for aluguel in alugueis %}
+            <tr>
+                <td>{{ aluguel.data_inicio|date:"d/m/Y" }}</td>
+                <td>{{ aluguel.data_fim|date:"d/m/Y" }}</td>
+                <td>{{ aluguel.veiculo.placa }}</td>
+                <td>{{ aluguel.motorista.nome }}</td>
+                <td>{{ aluguel.km_atual }}</td>
+                <td>R$ {{ aluguel.taxa }}</td>
+                <td>R$ {{ aluguel.valor_pago }}</td>
+                <td>
+                    <a href="{% url 'editar_aluguel' aluguel.pk %}">Editar</a> |
+                    <a href="{% url 'excluir_aluguel' aluguel.pk %}" onclick="return confirm('Tem certeza que deseja excluir?')">Excluir</a>
+                </td>
+            </tr>
+            {% empty %}
+            <tr>
+                <td colspan="8">Nenhum aluguel encontrado.</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+
+</body>
+</html>
