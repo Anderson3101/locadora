@@ -19,7 +19,11 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # Segurança
 SECRET_KEY = os.getenv('SECRET_KEY', 'chave-padrao-segura')
 DEBUG = os.getenv('DEBUG', 'False') == 'True'
-ALLOWED_HOSTS = ["https://locadora-c4dw.onrender.com"]
+
+ALLOWED_HOSTS = os.getenv("ALLOWED_HOSTS", "localhost").split(",")
+
+print("ALLOWED_HOSTS configurado como:", ALLOWED_HOSTS)
+
 
 # Aplicações instaladas
 INSTALLED_APPS = [
