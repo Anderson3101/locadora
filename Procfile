@@ -1,1 +1,1 @@
-web: gunicorn locadora.wsgi
+web: gunicorn locadora.wsgi --log-file -
